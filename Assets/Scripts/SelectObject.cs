@@ -45,10 +45,8 @@ public class SelectObject : MonoBehaviour
                 }
             }
 
-           
-
-            }
-
         }
+
+    }
 
 }
