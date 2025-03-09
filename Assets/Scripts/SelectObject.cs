@@ -22,8 +22,6 @@ public class SelectObject : MonoBehaviour
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            Debug.Log("fired");
-
             if (Physics.Raycast(ray, out hit, 100, gameLayer)) 
             {
                 
@@ -33,16 +31,25 @@ public class SelectObject : MonoBehaviour
                 }
 
                 currentObject = hit.transform.gameObject;
-                currentObject.AddComponent<Outline>();
-
+                if(currentObject.GetComponent<Outline>() == null) 
+                {
+                    currentObject.AddComponent<Outline>();
+                }
             }
 
             if(!Physics.Raycast(ray, out hit, 100, gameLayer))
             {
-                if (currentObject != null) {
+                if (currentObject != null) 
+                {
                     Destroy(currentObject.GetComponent<Outline>());
                     currentObject = null;
                 }
+            }
+            
+            if (GridManager.instance.isBuildingBeingPlaced == true) 
+            {
+                Destroy(currentObject.GetComponent<Outline>());
+                currentObject = null;
             }
 
         }
