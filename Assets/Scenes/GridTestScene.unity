@@ -5398,8 +5398,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 100, y: 100}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 189.4, y: 107.1}
+  m_SizeDelta: {x: 232.8, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &363601895
 MonoBehaviour:
@@ -8948,7 +8948,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: 'Create Test Builidng
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8991,7 +8993,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_TextWrappingMode: 1
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -11460,10 +11462,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridInfo: {fileID: 1743282094}
   grid: {fileID: 0}
-  gridMinX: 100
-  gridMaxX: 100
-  gridMinZ: 100
-  gridMaxZ: 100
+  gridMinX: -10
+  gridMaxX: 10
+  gridMinZ: -10
+  gridMaxZ: 10
+  isBuildingBeingPlaced: 0
 --- !u!4 &743189420 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9010586182323215747, guid: f2ec5e4f41438724fa6f93b349ac7f65, type: 3}
@@ -16799,6 +16802,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9117300041823591529, guid: 786d6d9ea121aeb48ac05024c2b37aa0, type: 3}
   m_PrefabInstance: {fileID: 1808436711}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1027413786
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1027413787}
+  m_Layer: 0
+  m_Name: BuildingParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1027413787
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027413786}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.7014947, y: -1.4865402, z: 4.057535}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1032299174
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22459,7 +22493,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_TextWrappingMode: 1
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -31473,7 +31507,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 192
 --- !u!4 &2013466072 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9117300041823591529, guid: 786d6d9ea121aeb48ac05024c2b37aa0, type: 3}
@@ -32982,3 +33016,4 @@ SceneRoots:
   - {fileID: 741063064}
   - {fileID: 1155412548}
   - {fileID: 1958896675}
+  - {fileID: 1027413787}

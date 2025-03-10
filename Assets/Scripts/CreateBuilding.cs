@@ -9,13 +9,20 @@ public class CreateBuilding : MonoBehaviour
     [Header("Layer")]
     [SerializeField] private LayerMask gameLayer;
     
+    private GameObject buildingParent;
+    
     public GridInformation gridInfo;
 
     GameObject tempBuilding;
 
+    void Awake()
+    {
+        buildingParent = GameObject.Find("BuildingParent");
+    }
+
     public void BuildingCreate(string buildingName) 
     {
-        tempBuilding = Instantiate(Resources.Load<GameObject>(GridManager.instance.buildings[buildingName]), Vector3.zero, UnityEngine.Quaternion.identity);
+        tempBuilding = Instantiate(Resources.Load<GameObject>(GridManager.instance.buildings[buildingName]), Vector3.zero, UnityEngine.Quaternion.identity, buildingParent.transform);
         GridManager.instance.isBuildingBeingPlaced = true;
     }
 
@@ -28,6 +35,7 @@ public class CreateBuilding : MonoBehaviour
             if(Input.GetMouseButtonDown(0) && GridManager.instance.CanBuildingBePlaced(tempBuilding.transform.position))
             { 
                 GridManager.instance.BuildingPlaced(tempBuilding.transform.position);
+                EconomyManager.instance.economyTickEvent.AddListener(tempBuilding.GetComponent<BuildingBase>().ProduceMoney);
                 tempBuilding = null;
                 GridManager.instance.isBuildingBeingPlaced = false;
             }
