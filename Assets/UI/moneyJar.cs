@@ -10,7 +10,7 @@ public class moneyJar : MonoBehaviour
     public Sprite currentSprite3;
     public Sprite currentSprite4;
 
-    public float currentMoney;
+    public int currentMoney;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
