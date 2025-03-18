@@ -18,5 +18,7 @@ public class energyLevel : MonoBehaviour
     void Update()
     {
         energyText.text = energyValue.ToString();
+        // energyText.text = energyValue.ToString("" + Mathf.Floor(energyValue));
+        // energyText.text = energyValue.ToString(Mathf.Floor(energyValue) + "%");
     }
 }

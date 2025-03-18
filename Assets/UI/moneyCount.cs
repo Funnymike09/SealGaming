@@ -13,5 +13,6 @@ public class moneyCount : MonoBehaviour
     {
         counter = moneyValue.GetComponent<moneyJar>().currentMoney;
         counterText.text = counter.ToString();
+        // counterText.text = counter.ToString("€" + counter);
     }
 }
