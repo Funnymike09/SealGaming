@@ -16,6 +16,8 @@ public class SelectObject : MonoBehaviour
 
     void Update()
     {
+        if (GridManager.instance.isBuildingBeingPlaced) return;
+    
         if(Input.GetMouseButtonDown(0)) 
         {
 

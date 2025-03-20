@@ -45,6 +45,7 @@ public class GridManager : MonoBehaviour
     void InitialiseDict() 
     {
         buildings.Add("Test", "Buildings/Test");
+        buildings.Add("BigTest", "Buildings/BigTest");
 
     }
     
@@ -82,6 +83,7 @@ public class GridManager : MonoBehaviour
         Vector3Int newPos = grid.WorldToCell(normalisedPos);
         
         gridInfo.SetPositionProperty(newPos, "CanBePlacedHere", 0);
+        print("building placed at: " + newPos);
         
     }
 

@@ -35,23 +35,25 @@ public class EconomyManager : MonoBehaviour
         {
             instance = this;
         }
+        
+        currentMoney = startingMoney;
 
         moneyText.text = "Money: " + currentMoney + "$";
         workPowerText.text = "Work Power: " + currentWorkPower;
         energyText.text = "Energy: " + currentEnergy;
 
         economyTickEvent.AddListener(UpdateUI);
-        InvokeRepeating(nameof(EnconomyTick), enconomyTickLength, enconomyTickLength);
+        // InvokeRepeating(nameof(EnconomyTick), enconomyTickLength, enconomyTickLength);
 
     }
 
-    void EnconomyTick() 
+    public void EnconomyTick() 
     {
-        UpdateUI();
         economyTickEvent.Invoke();    
+        UpdateUI();
     }
 
-    void UpdateUI() 
+    public void UpdateUI() 
     {
         moneyText.text = "Money: " + (int)currentMoney + "$";
         workPowerText.text = "Work Power: " + (int)currentWorkPower;
@@ -61,6 +63,11 @@ public class EconomyManager : MonoBehaviour
     public void AddMoney(float amount) 
     {
         currentMoney += amount;
+    }
+    
+    public void RemoveMoney(float amount) 
+    {
+        currentMoney -= amount;
     }
 
 }
