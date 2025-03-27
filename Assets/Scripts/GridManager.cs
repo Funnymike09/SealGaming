@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using Vector3 = UnityEngine.Vector3;
 using Quaternion = UnityEngine.Quaternion;
+using Random = UnityEngine.Random;
 
 public class GridManager : MonoBehaviour
 {
@@ -50,7 +51,7 @@ public class GridManager : MonoBehaviour
     {
         beachTiles = GameObject.FindGameObjectsWithTag("Beach");
         
-        SpawnSeal(1);
+        SpawnSeal(Random.Range(0, 4));
     }
 
     void InitialiseDict() 

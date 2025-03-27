@@ -1,4 +1,3 @@
-using System.Numerics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -85,6 +84,11 @@ public class CreateBuilding : MonoBehaviour
             Vector3 adjustedPosition = hit.transform.position;
             adjustedPosition.y = adjustedPosition.y + 1;
             tempBuilding.transform.position = adjustedPosition;
+        }
+        
+        if (Input.GetKeyDown(KeyCode.R)) 
+        {
+            tempBuilding.transform.Rotate(transform.rotation.x, 90f, transform.rotation.z);
         }
         
         
