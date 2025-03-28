@@ -32319,7 +32319,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameLayer:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 960
+  moveLayer:
+    serializedVersion: 2
+    m_Bits: 448
 --- !u!4 &2013466072 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9117300041823591529, guid: 786d6d9ea121aeb48ac05024c2b37aa0, type: 3}
