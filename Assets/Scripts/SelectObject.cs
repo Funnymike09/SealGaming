@@ -5,7 +5,7 @@ public class SelectObject : MonoBehaviour
 {
     
     private Camera cam;
-    private GameObject currentObject;
+    public GameObject currentObject;
     private bool isSealBeingMoved;
     private Vector3 returnPosition;
     
@@ -63,7 +63,12 @@ public class SelectObject : MonoBehaviour
 
         }
         
-        if (currentObject == null) return;
+        if (currentObject == null) 
+        {
+            Cursor.visible = true;
+            return;
+        }
+        
         if(currentObject.layer == LayerMask.NameToLayer("Seal")) 
         {
             SealMove();

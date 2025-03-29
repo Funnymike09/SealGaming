@@ -79,6 +79,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 182385968258672518, guid: 8c8439612e01401438449a840d02f690, type: 3}
       insertIndex: -1
       addedObject: {fileID: -6016216340149275912}
+    - targetCorrespondingSourceObject: {fileID: 182385968258672518, guid: 8c8439612e01401438449a840d02f690, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -4506357411213396624}
+    - targetCorrespondingSourceObject: {fileID: 182385968258672518, guid: 8c8439612e01401438449a840d02f690, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -1485884658442321802}
   m_SourcePrefab: {fileID: 100100000, guid: 8c8439612e01401438449a840d02f690, type: 3}
 --- !u!1 &6120941754297029004 stripped
 GameObject:
@@ -100,9 +106,53 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.010290901, y: 0.006791509, z: 0.0061757094}
-  m_Center: {x: 2.3283075e-10, y: -5.9604643e-10, z: 0.0025000004}
+  m_Size: {x: 0.013151255, y: 0.008997577, z: 0.0063079153}
+  m_Center: {x: 0.00021922095, y: -0.00013949696, z: 0.0025661043}
+--- !u!114 &-4506357411213396624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6120941754297029004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f8ed6afd80a1684aa53bad525263636, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Malnourished: 0
+  Injured: 0
+  Sick: 0
+  Health: 0
+  healRate: 15
+--- !u!54 &-1485884658442321802
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6120941754297029004}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
