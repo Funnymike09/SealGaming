@@ -21,20 +21,25 @@ public class SelectObject : MonoBehaviour
     void Update()
     {
         if (GridManager.instance.isBuildingBeingPlaced) return;
+        
     
         if(Input.GetMouseButtonDown(0) && !isSealBeingMoved) 
         {
 
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
+            
+        
 
-            if (Physics.Raycast(ray, out hit, 100, gameLayer)) 
+
+                if (Physics.Raycast(ray, out hit, 100, gameLayer)) 
             {
                 
                 if(currentObject != null) 
                 {
                     Destroy(currentObject.GetComponent<Outline>());
                 }
+             
 
                 currentObject = hit.transform.gameObject;
                 returnPosition = hit.transform.position;
@@ -83,6 +88,7 @@ public class SelectObject : MonoBehaviour
         RaycastHit hit;
         
         Cursor.visible = false;
+        currentObject.GetComponent<Tip>().Show();
         
         if(Physics.Raycast(ray, out hit, 100, gameLayer)) 
         {
@@ -95,6 +101,7 @@ public class SelectObject : MonoBehaviour
         {
             currentObject.transform.position = returnPosition;
             isSealBeingMoved = false;
+            currentObject.GetComponent<Tip>().ShowOver();
             Destroy(currentObject.GetComponent<Outline>());
             currentObject = null;
             Cursor.visible = true;

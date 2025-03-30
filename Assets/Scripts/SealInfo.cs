@@ -45,6 +45,7 @@ public class SealInfo : MonoBehaviour
     {
         if(other.gameObject.CompareTag("SealBuilding") && Input.GetMouseButtonDown(0) && other.gameObject.GetComponent<SealBuilding>().currentSeal == null) 
         {
+            GetComponent<Tip>().ShowOver();
             Camera.main.GetComponent<SelectObject>().currentObject = null;
             GetComponent<MeshRenderer>().enabled = false;
             InvokeRepeating(nameof(Heal), 0.1f, 1f);
