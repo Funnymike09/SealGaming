@@ -18,6 +18,8 @@ public class GridManager : MonoBehaviour
 
     public Dictionary<String, String> buildings = new Dictionary<string, string>();
     
+    public int dayIndex;
+    
     public GameObject[] beachTiles;
     [SerializeField]
     private Canvas HBcanvas;
@@ -49,12 +51,27 @@ public class GridManager : MonoBehaviour
         
         SetUpGrid();
         
+        dayIndex = 1;
+        
     }
 
     void Start()
     {
         beachTiles = GameObject.FindGameObjectsWithTag("Beach");
         
+        SpawnSeal(Random.Range(0, beachTiles.Length));
+        
+        InvokeRepeating(nameof(KillMe), 120, 120);
+        InvokeRepeating(nameof(AdvanceDay), 120, 120);
+    }
+    
+    void AdvanceDay() 
+    {
+        dayIndex += 1;
+    }
+    
+    void KillMe() 
+    {
         SpawnSeal(Random.Range(0, beachTiles.Length));
     }
 

@@ -9,7 +9,7 @@ public class EconomyManager : MonoBehaviour
 
     public static EconomyManager instance;
 
-    public TextMeshProUGUI moneyText, workPowerText, energyText;
+    public TextMeshProUGUI moneyText, workPowerText, energyText, dayText;
 
 
     public float currentMoney { get; private set; }
@@ -41,7 +41,7 @@ public class EconomyManager : MonoBehaviour
         moneyText.text = "Money: " + currentMoney + "$";
         workPowerText.text = "Work Power: " + currentWorkPower;
         energyText.text = "Energy: " + currentEnergy;
-
+        dayText.text = "Day: " + GridManager.instance.dayIndex;
         economyTickEvent.AddListener(UpdateUI);
         InvokeRepeating(nameof(EnconomyTick), enconomyTickLength, enconomyTickLength);
 
@@ -58,6 +58,7 @@ public class EconomyManager : MonoBehaviour
         moneyText.text = "Money: " + (int)currentMoney + "$";
         workPowerText.text = "Work Power: " + (int)currentWorkPower;
         energyText.text = "Energy: " + (int)currentEnergy;
+        dayText.text = "Day: " + GridManager.instance.dayIndex;
     }
     
     public void AddMoney(float amount) 
