@@ -77,6 +77,12 @@ public class SelectObject : MonoBehaviour
         if(currentObject.layer == LayerMask.NameToLayer("Seal")) 
         {
             SealMove();
+            GameObject[] sealBuildings = GameObject.FindGameObjectsWithTag("SealBuilding");
+            foreach(GameObject go in sealBuildings) 
+            {
+                go.AddComponent<Outline>();
+                go.GetComponent<Outline>().OutlineColor = Color.green;
+            }
         }
     }
     
@@ -90,7 +96,7 @@ public class SelectObject : MonoBehaviour
         Cursor.visible = false;
         currentObject.GetComponent<Tip>().Show();
         
-        if(Physics.Raycast(ray, out hit, 100, gameLayer)) 
+        if(Physics.Raycast(ray, out hit, 100, moveLayer)) 
         {
             Vector3 adjustedPosition = hit.transform.position;
             adjustedPosition.y = adjustedPosition.y + 0.5f;
@@ -105,6 +111,11 @@ public class SelectObject : MonoBehaviour
             Destroy(currentObject.GetComponent<Outline>());
             currentObject = null;
             Cursor.visible = true;
+            GameObject[] sealBuildings = GameObject.FindGameObjectsWithTag("SealBuilding");
+            foreach(GameObject go in sealBuildings) 
+            {
+                Destroy(go.GetComponent<Outline>());
+            }
         }
     }
 
