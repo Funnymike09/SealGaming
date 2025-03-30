@@ -19,6 +19,10 @@ public class GridManager : MonoBehaviour
     public Dictionary<String, String> buildings = new Dictionary<string, string>();
     
     public GameObject[] beachTiles;
+    [SerializeField]
+    private Canvas HBcanvas;
+    [SerializeField]
+    private Camera HBcamera;
    
     [Header("Grid")]
     public int gridMinX;
@@ -58,6 +62,7 @@ public class GridManager : MonoBehaviour
     {
         buildings.Add("Test", "Buildings/Test");
         buildings.Add("BigTest", "Buildings/BigTest");
+        buildings.Add("Seal Bathing Area", "Buildings/Seal Bathing Area");
 
     }
     
@@ -103,7 +108,8 @@ public class GridManager : MonoBehaviour
     {
         Vector3 adjustedPosition = beachTiles[number].transform.position;
         adjustedPosition.y = adjustedPosition.y + 0.5f;
-        Instantiate(Resources.Load<GameObject>("Seals/AtlanticSeal"), adjustedPosition, Quaternion.Euler(-90, UnityEngine.Random.Range(0, 360), 0));
+       GameObject seal = Instantiate(Resources.Load<GameObject>("Seals/AtlanticSeal"), adjustedPosition, Quaternion.Euler(-90, UnityEngine.Random.Range(0, 360), 0));
+        seal.GetComponent<SealInfo>().SetupHealthBar(HBcanvas, HBcamera);
     }
 
 }
