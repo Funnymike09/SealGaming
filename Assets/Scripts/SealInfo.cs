@@ -1,12 +1,15 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class SealInfo : MonoBehaviour
 {
    
    public bool Malnourished, Injured, Sick;
    
-   public float Health = 0.0f;
-   
+   public float Health = 1;
+    [SerializeField]
+    public ProgressbarUI progressbarUI;
+    private float MaxHealth;
    [SerializeField] float healRate;
 
     void Awake()
@@ -25,6 +28,7 @@ public class SealInfo : MonoBehaviour
         {
             Sick = true;
         }
+        MaxHealth = 100;
     }
 
     void Update()
@@ -33,6 +37,7 @@ public class SealInfo : MonoBehaviour
         {
             EconomyManager.instance.AddMoney(100);
             Destroy(gameObject);
+            Destroy(progressbarUI.gameObject);
         }
     }
 
@@ -50,6 +55,15 @@ public class SealInfo : MonoBehaviour
     void Heal() 
     {
         Health += healRate;
+        progressbarUI.SetProgress(Health / MaxHealth, 3);
     }
 
+    public void SetupHealthBar(Canvas canvas, Camera camera)
+    {
+        progressbarUI.transform.SetParent(canvas.transform);
+        if (progressbarUI.TryGetComponent<FaceCamera>(out FaceCamera faceCamera))
+        {
+            faceCamera.Camera = camera;
+        }
+    }
 }
