@@ -55,7 +55,7 @@ public class GridManager : MonoBehaviour
     {
         beachTiles = GameObject.FindGameObjectsWithTag("Beach");
         
-        SpawnSeal(Random.Range(0, 4));
+        SpawnSeal(Random.Range(0, beachTiles.Length));
     }
 
     void InitialiseDict() 
