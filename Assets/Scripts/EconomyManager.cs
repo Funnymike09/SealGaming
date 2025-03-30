@@ -43,7 +43,7 @@ public class EconomyManager : MonoBehaviour
         energyText.text = "Energy: " + currentEnergy;
 
         economyTickEvent.AddListener(UpdateUI);
-        // InvokeRepeating(nameof(EnconomyTick), enconomyTickLength, enconomyTickLength);
+        InvokeRepeating(nameof(EnconomyTick), enconomyTickLength, enconomyTickLength);
 
     }
 
