@@ -1,4 +1,3 @@
-using System.Numerics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -13,6 +12,8 @@ public class CreateBuilding : MonoBehaviour
     private GameObject buildingParent;
     
     public GridInformation gridInfo;
+    [SerializeField]
+    AudioClip Place;
 
     GameObject tempBuilding;
     BuildingBase tempBuildingInfo;
@@ -53,6 +54,7 @@ public class CreateBuilding : MonoBehaviour
                 GridManager.instance.isBuildingBeingPlaced = false;
                 Cursor.visible = true;
                 print("balls");
+                AudioManager.singleton.PlaySoundList(gameObject);
             }
             
             if(Input.GetMouseButtonDown(1)) 
@@ -74,6 +76,7 @@ public class CreateBuilding : MonoBehaviour
         
         Cursor.visible = false;
         
+        
         if (tempBuildingInfo.gameObject.GetComponent<Outline>()) 
         {
             tempBuildingInfo.gameObject.GetComponent<Outline>().OutlineColor = tempBuildingInfo.canBePlaced == true ? Color.green : Color.red;
@@ -85,6 +88,11 @@ public class CreateBuilding : MonoBehaviour
             Vector3 adjustedPosition = hit.transform.position;
             adjustedPosition.y = adjustedPosition.y + 1;
             tempBuilding.transform.position = adjustedPosition;
+        }
+        
+        if (Input.GetKeyDown(KeyCode.R)) 
+        {
+            tempBuilding.transform.Rotate(transform.rotation.x, 90f, transform.rotation.z);
         }
         
         

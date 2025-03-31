@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyProduced: 0
+  purchaseCost: 0
   canBePlaced: 0
 --- !u!1 &7560662833263883635
 GameObject:

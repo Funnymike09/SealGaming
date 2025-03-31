@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using Vector3 = UnityEngine.Vector3;
 using Quaternion = UnityEngine.Quaternion;
+using Random = UnityEngine.Random;
 
 public class GridManager : MonoBehaviour
 {
@@ -17,7 +18,13 @@ public class GridManager : MonoBehaviour
 
     public Dictionary<String, String> buildings = new Dictionary<string, string>();
     
+    public int dayIndex;
+    
     public GameObject[] beachTiles;
+    [SerializeField]
+    private Canvas HBcanvas;
+    [SerializeField]
+    private Camera HBcamera;
    
     [Header("Grid")]
     public int gridMinX;
@@ -44,19 +51,35 @@ public class GridManager : MonoBehaviour
         
         SetUpGrid();
         
+        dayIndex = 1;
+        
     }
 
     void Start()
     {
         beachTiles = GameObject.FindGameObjectsWithTag("Beach");
         
-        SpawnSeal(1);
+        SpawnSeal(Random.Range(0, beachTiles.Length));
+        
+        InvokeRepeating(nameof(KillMe), 120, 120);
+        InvokeRepeating(nameof(AdvanceDay), 120, 120);
+    }
+    
+    void AdvanceDay() 
+    {
+        dayIndex += 1;
+    }
+    
+    void KillMe() 
+    {
+        SpawnSeal(Random.Range(0, beachTiles.Length));
     }
 
     void InitialiseDict() 
     {
         buildings.Add("Test", "Buildings/Test");
         buildings.Add("BigTest", "Buildings/BigTest");
+        buildings.Add("Seal Bathing Area", "Buildings/Seal Bathing Area");
 
     }
     
@@ -92,6 +115,7 @@ public class GridManager : MonoBehaviour
     {
         Vector3 normalisedPos = new Vector3(pos.x, 0, pos.z);
         Vector3Int newPos = grid.WorldToCell(normalisedPos);
+      
         
         gridInfo.SetPositionProperty(newPos, "CanBePlacedHere", 0);
         print("building placed at: " + newPos);
@@ -102,7 +126,8 @@ public class GridManager : MonoBehaviour
     {
         Vector3 adjustedPosition = beachTiles[number].transform.position;
         adjustedPosition.y = adjustedPosition.y + 0.5f;
-        Instantiate(Resources.Load<GameObject>("Seals/AtlanticSeal"), adjustedPosition, Quaternion.Euler(-90, UnityEngine.Random.Range(0, 360), 0));
+       GameObject seal = Instantiate(Resources.Load<GameObject>("Seals/AtlanticSeal"), adjustedPosition, Quaternion.Euler(-90, UnityEngine.Random.Range(0, 360), 0));
+        seal.GetComponent<SealInfo>().SetupHealthBar(HBcanvas, HBcamera);
     }
 
 }
