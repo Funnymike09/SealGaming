@@ -12,6 +12,8 @@ public class CreateBuilding : MonoBehaviour
     private GameObject buildingParent;
     
     public GridInformation gridInfo;
+    [SerializeField]
+    AudioClip Place;
 
     GameObject tempBuilding;
     BuildingBase tempBuildingInfo;
@@ -52,6 +54,7 @@ public class CreateBuilding : MonoBehaviour
                 GridManager.instance.isBuildingBeingPlaced = false;
                 Cursor.visible = true;
                 print("balls");
+                AudioManager.singleton.PlaySoundList(gameObject);
             }
             
             if(Input.GetMouseButtonDown(1)) 
@@ -72,6 +75,7 @@ public class CreateBuilding : MonoBehaviour
         RaycastHit hit;
         
         Cursor.visible = false;
+        
         
         if (tempBuildingInfo.gameObject.GetComponent<Outline>()) 
         {

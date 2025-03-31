@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEditor.Rendering.Universal.ShaderGraph;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
@@ -16,6 +17,7 @@ public class EconomyManager : MonoBehaviour
     public float currentWorkPower { get; private set; }
     public float currentEnergy { get; private set ; }
     public float currentInfluence { get; private set; }
+
 
     [Header("Starting Vaules")]
     [SerializeField] int startingMoney;
@@ -64,6 +66,7 @@ public class EconomyManager : MonoBehaviour
     public void AddMoney(float amount) 
     {
         currentMoney += amount;
+        //AudioManager.singleton.PlaySoundListOnce(gameObject, moner);
     }
     
     public void RemoveMoney(float amount) 

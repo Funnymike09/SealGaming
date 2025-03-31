@@ -11,6 +11,7 @@ public class HoverManager : MonoBehaviour
 
     public static Action<string, Vector2> OnMouseHover;
     public static Action OnMouseLoseFocus;
+   
     private void OnEnable()
     {
         OnMouseHover += ShowTip;
@@ -49,4 +50,6 @@ public class HoverManager : MonoBehaviour
         text.text = default;
         tipWindow.gameObject.SetActive(false);
     }
+
+    
 }

@@ -1,5 +1,7 @@
+using System.Runtime.ConstrainedExecution;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SelectObject : MonoBehaviour
 {
@@ -8,7 +10,9 @@ public class SelectObject : MonoBehaviour
     public GameObject currentObject;
     private bool isSealBeingMoved;
     private Vector3 returnPosition;
-    
+    [SerializeField]
+    AudioResource Huh;
+
     [SerializeField] private LayerMask gameLayer;
     [SerializeField] private LayerMask moveLayer;
 
@@ -73,10 +77,10 @@ public class SelectObject : MonoBehaviour
             Cursor.visible = true;
             return;
         }
-        
-        if(currentObject.layer == LayerMask.NameToLayer("Seal")) 
+        if (currentObject.layer == LayerMask.NameToLayer("Seal")) 
         {
             SealMove();
+          
             GameObject[] sealBuildings = GameObject.FindGameObjectsWithTag("SealBuilding");
             foreach(GameObject go in sealBuildings) 
             {
@@ -84,11 +88,17 @@ public class SelectObject : MonoBehaviour
                 go.GetComponent<Outline>().OutlineColor = Color.green;
             }
         }
+        if (Input.GetMouseButtonDown(0) && isSealBeingMoved)
+        {
+             AudioManager.singleton.PlaySoundListOnce(currentObject,Huh);
+        }
+
     }
     
     void SealMove() 
     {
-        isSealBeingMoved = true;    
+        isSealBeingMoved = true;  
+        
         
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;

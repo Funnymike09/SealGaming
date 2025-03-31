@@ -115,6 +115,7 @@ public class GridManager : MonoBehaviour
     {
         Vector3 normalisedPos = new Vector3(pos.x, 0, pos.z);
         Vector3Int newPos = grid.WorldToCell(normalisedPos);
+      
         
         gridInfo.SetPositionProperty(newPos, "CanBePlacedHere", 0);
         print("building placed at: " + newPos);

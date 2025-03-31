@@ -1,4 +1,6 @@
+using System.Xml.Linq;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UIElements;
 
 public class SealInfo : MonoBehaviour
@@ -11,8 +13,19 @@ public class SealInfo : MonoBehaviour
     public ProgressbarUI progressbarUI;
     private float MaxHealth;
    [SerializeField] float healRate;
-   
-   private bool isInTrigger;
+    [SerializeField]
+    AudioClip Spawn;
+    [SerializeField]
+    AudioClip DoneHeal;
+    [SerializeField]
+    AudioClip HealProcess;
+    [SerializeField]
+    AudioResource moner;
+
+
+
+
+    private bool isInTrigger;
    private SealBuilding sealBuilding;
 
     void Awake()
@@ -32,6 +45,8 @@ public class SealInfo : MonoBehaviour
             Sick = true;
         }
         MaxHealth = 100;
+       // AudioManager.singleton.PlaySound(Spawn);
+        AudioManager.singleton.PlaySoundListSpatialClip(gameObject, Spawn);
     }
 
     void Update()
@@ -39,6 +54,7 @@ public class SealInfo : MonoBehaviour
         if (Health >= 100.0f) 
         {
             EconomyManager.instance.AddMoney(100);
+            AudioManager.singleton.PlaySoundListOnce(gameObject, moner);
             Destroy(gameObject);
             Destroy(progressbarUI.gameObject);
         }
@@ -53,6 +69,7 @@ public class SealInfo : MonoBehaviour
             GameObject[] sealBuildings = GameObject.FindGameObjectsWithTag("SealBuilding");
             foreach(GameObject go in sealBuildings) 
             {
+        AudioManager.singleton.PlaySoundListSpatialClip(gameObject, HealProcess);
                 Destroy(go.GetComponent<Outline>());
             }
         } 

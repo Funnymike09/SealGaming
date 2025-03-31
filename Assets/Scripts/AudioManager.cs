@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
@@ -33,11 +34,39 @@ public class AudioManager : MonoBehaviour
         AudioSource source = go.AddComponent<AudioSource>();
         source.clip = clip;
         source.spatialBlend = 1.0f;
-        source.maxDistance = 5f;
+        source.maxDistance = 20f;
         source.rolloffMode = AudioRolloffMode.Linear;
         source.Play();
         StartCoroutine(RemoveComponent(source, source.clip.length));
     }
+    public void PlaySoundList( GameObject go)
+    {
+        AudioSource source = go.GetComponent<AudioSource>();
+       // source.spatialBlend = 1.0f;
+       // source.maxDistance = 20f;
+       // source.rolloffMode = AudioRolloffMode.Linear;
+        source.Play();
+        //StartCoroutine(RemoveComponent(source, source.clip.length));
+    }
+    public void PlaySoundListOnce(GameObject go, AudioResource clip)
+    {
+        AudioSource source = go.GetComponent<AudioSource>();
+        // source.spatialBlend = 1.0f;
+        // source.maxDistance = 20f;
+        // source.rolloffMode = AudioRolloffMode.Linear;
+        source.Play();
+        source.resource = clip;
+        //StartCoroutine(RemoveComponent(source, source.clip.length));
+    }
+    public void PlaySoundListSpatialClip(GameObject go, AudioResource clip )
+    {
+        AudioSource source = go.AddComponent<AudioSource>();
+        source.resource = clip;
+        source.spatialBlend = 1.0f;
+        source.Play();
+       
+    }
+
 
     IEnumerator DestroyInstance(GameObject go, float time)
     {
@@ -52,4 +81,6 @@ public class AudioManager : MonoBehaviour
 
         Destroy(source);
     }
+
+
 }
