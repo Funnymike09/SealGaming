@@ -902,6 +902,75 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 210217573804887094}
   m_Mesh: {fileID: 3324608818864385758, guid: ac6eee8f114829543a6371b706183ec7, type: 3}
+--- !u!1001 &1269084539100498820
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3466013678059398719, guid: 1a7ece70f4bd3d6459bb47e61ad3ed53, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.748
+      objectReference: {fileID: 0}
+    - target: {fileID: 3466013678059398719, guid: 1a7ece70f4bd3d6459bb47e61ad3ed53, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 3466013678059398719, guid: 1a7ece70f4bd3d6459bb47e61ad3ed53, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 3466013678059398719, guid: 1a7ece70f4bd3d6459bb47e61ad3ed53, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 3466013678059398719, guid: 1a7ece70f4bd3d6459bb47e61ad3ed53, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3466013678059398719, guid: 1a7ece70f4bd3d6459bb47e61ad3ed53, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3466013678059398719, guid: 1a7ece70f4bd3d6459bb47e61ad3ed53, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3466013678059398719, guid: 1a7ece70f4bd3d6459bb47e61ad3ed53, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3466013678059398719, guid: 1a7ece70f4bd3d6459bb47e61ad3ed53, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3466013678059398719, guid: 1a7ece70f4bd3d6459bb47e61ad3ed53, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726695208645326875, guid: 1a7ece70f4bd3d6459bb47e61ad3ed53, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 005c72b15c20c8547bdc8ee46c28505c, type: 2}
+    - target: {fileID: 3726695208645326875, guid: 1a7ece70f4bd3d6459bb47e61ad3ed53, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b2eb4edfe79010643a7855542fa43d0d, type: 2}
+    - target: {fileID: 3726695208645326875, guid: 1a7ece70f4bd3d6459bb47e61ad3ed53, type: 3}
+      propertyPath: 'm_Materials.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b2eb4edfe79010643a7855542fa43d0d, type: 2}
+    - target: {fileID: 8890130469022874055, guid: 1a7ece70f4bd3d6459bb47e61ad3ed53, type: 3}
+      propertyPath: m_Name
+      value: level 2 seal bath
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1a7ece70f4bd3d6459bb47e61ad3ed53, type: 3}
 --- !u!23 &1283316170245776597
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1586,3 +1655,4 @@ SceneRoots:
   - {fileID: 1941917421}
   - {fileID: 5790944511714746323}
   - {fileID: 2184487446501474297}
+  - {fileID: 1269084539100498820}
