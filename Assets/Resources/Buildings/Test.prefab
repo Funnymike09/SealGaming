@@ -150,7 +150,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyProduced: 10
+  energyProduced: 0
+  workPowerProduced: 0
   purchaseCost: 10
+  energyCost: 5
+  workPowerCost: 5
   canBePlaced: 0
 --- !u!1 &7482544086498973867
 GameObject:

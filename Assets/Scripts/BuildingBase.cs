@@ -5,7 +5,11 @@ public class BuildingBase : MonoBehaviour
 {
     [Header("Econ Values")]
     [SerializeField] private float moneyProduced;
+    public float energyProduced;
+    public float workPowerProduced;
     public float purchaseCost;
+    public float energyCost;
+    public float workPowerCost;
     
     public bool canBePlaced;
 

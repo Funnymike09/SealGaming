@@ -1,5 +1,4 @@
 using TMPro;
-using UnityEditor.Rendering.Universal.ShaderGraph;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Events;
@@ -21,6 +20,8 @@ public class EconomyManager : MonoBehaviour
 
     [Header("Starting Vaules")]
     [SerializeField] int startingMoney;
+    [SerializeField] int startingEnergy;
+    [SerializeField] int startingWorkPower;
 
     [Header("Enconomy")]
     [SerializeField] float enconomyTickLength;
@@ -39,6 +40,8 @@ public class EconomyManager : MonoBehaviour
         }
         
         currentMoney = startingMoney;
+        currentEnergy = startingEnergy;
+        currentWorkPower = startingWorkPower;
 
         moneyText.text = "Money: " + currentMoney + "$";
         workPowerText.text = "Work Power: " + currentWorkPower;
@@ -72,6 +75,26 @@ public class EconomyManager : MonoBehaviour
     public void RemoveMoney(float amount) 
     {
         currentMoney -= amount;
+    }
+    
+    public void AddEnergy(float amount) 
+    {
+        currentEnergy += amount;
+    }
+    
+    public void RemoveEnergy(float amount) 
+    {
+        currentEnergy -= amount;
+    }
+    
+    public void AddWorkPower(float amount) 
+    {
+        currentWorkPower += amount;
+    }
+    
+    public void RemoveWorkPower(float amount) 
+    {
+        currentWorkPower -= amount;
     }
 
 }
