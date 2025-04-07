@@ -8,7 +8,7 @@ public class SelectObject : MonoBehaviour
     
     private Camera cam;
     public GameObject currentObject;
-    private bool isSealBeingMoved;
+    public bool isSealBeingMoved;
     private Vector3 returnPosition;
     [SerializeField]
     AudioResource Huh;
