@@ -63,6 +63,7 @@ public class SealInfo : MonoBehaviour
         {
             GetComponent<Tip>().ShowOver();
             Camera.main.GetComponent<SelectObject>().currentObject = null;
+            Camera.main.GetComponent<SelectObject>().isSealBeingMoved = false;
             GetComponent<MeshRenderer>().enabled = false;
             InvokeRepeating(nameof(Heal), 0.1f, 1f);
             sealBuilding.currentSeal = this;
