@@ -115,7 +115,7 @@ Material:
     - _GlossyReflections: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
-    - _OutlineThickness: 0
+    - _OutlineThickness: 0.246
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
@@ -127,7 +127,7 @@ Material:
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _edgevalue: 0.0005
+    - _edgevalue: 0.01
     - _steps: 0
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
