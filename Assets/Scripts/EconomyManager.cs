@@ -43,9 +43,9 @@ public class EconomyManager : MonoBehaviour
         currentEnergy = startingEnergy;
         currentWorkPower = startingWorkPower;
 
-        moneyText.text = "Money: " + currentMoney + "$";
-        workPowerText.text = "Work Power: " + currentWorkPower;
-        energyText.text = "Energy: " + currentEnergy;
+        moneyText.text = currentMoney + "$";
+        workPowerText.text = currentWorkPower.ToString();
+        energyText.text = currentEnergy + "W";
         dayText.text = "Day: " + GridManager.instance.dayIndex;
         economyTickEvent.AddListener(UpdateUI);
         InvokeRepeating(nameof(EnconomyTick), enconomyTickLength, enconomyTickLength);
@@ -60,9 +60,9 @@ public class EconomyManager : MonoBehaviour
 
     public void UpdateUI() 
     {
-        moneyText.text = "Money: " + (int)currentMoney + "$";
-        workPowerText.text = "Work Power: " + (int)currentWorkPower;
-        energyText.text = "Energy: " + (int)currentEnergy;
+        moneyText.text = currentMoney.ToString();
+        workPowerText.text = currentWorkPower.ToString();
+        energyText.text = currentEnergy.ToString();
         dayText.text = "Day: " + GridManager.instance.dayIndex;
     }
     
