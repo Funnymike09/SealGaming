@@ -11,8 +11,8 @@ public class moneyCount : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        counter = moneyValue.GetComponent<moneyJar>().currentMoney;
-        counterText.text = counter.ToString();
-        // counterText.text = counter.ToString("€" + counter);
+        // counter = moneyValue.GetComponent<moneyJar>().currentMoney;
+        // counterText.text = counter.ToString();
+        // counterText.text = counter.ToString("ï¿½" + counter);
     }
 }
