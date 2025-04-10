@@ -1,39 +1,60 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Audio;
+using UnityEngine.Rendering;
 
 public class Main_Menu : MonoBehaviour
 {
-    public FullScreenPassRendererFeature FullScreenPassRendererFeature;
+    public Material outlineMaterial;
     public Toggle toggleButton;
+    public Slider SoundSlider;
+    public AudioMixer masterMixer;
 
     void Start()
     {
-
-        if (FullScreenPassRendererFeature == null)
+        SetVolume(PlayerPrefs.GetFloat("SavedMasterVolume"));
+        if (SoundSlider != null)
         {
-            Debug.LogError("FullScreenPassRendererFeature is not assigned!");
-            return;
+            SoundSlider.value = SoundSlider.maxValue;
         }
-
-        if (toggleButton != null && FullScreenPassRendererFeature != null)
+        if(toggleButton != null)
         {
-            FullScreenPassRendererFeature.SetActive(toggleButton.isOn);
+            toggleButton.onValueChanged.AddListener(OnToggleChange);
+            OnToggleChange(toggleButton.isOn);
         }
 
 
     }
 
-    public void OnToggleChange(bool isOn)
+    public void SetVolume(float value)
     {
-        if(FullScreenPassRendererFeature != null)
+        if(value < 1f)
         {
-            FullScreenPassRendererFeature.SetActive(isOn);
+            value = 0.001f;
         }
 
-        else
+        RefreshSlider(value);
+        PlayerPrefs.SetFloat("SavedMasterVolume", value);
+        masterMixer.SetFloat("MasterVolume", Mathf.Log10(value / 100) * 20f);
+    }
+
+    public void SetVolumeFromSlider()
+    {
+        SetVolume(SoundSlider.value);
+    }
+
+    public void RefreshSlider(float value)
+    {
+        SoundSlider.value = value;
+    }
+
+    public void OnToggleChange(bool isOn)
+    {
+        if(outlineMaterial != null)
         {
-            FullScreenPassRendererFeature.SetActive(false);
+            float outlineValue = isOn ? 0.237f : 0f;
+            outlineMaterial.SetFloat("_OutlineThickness", outlineValue);
         }
     }
 
