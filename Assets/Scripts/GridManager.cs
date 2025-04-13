@@ -75,6 +75,8 @@ public class GridManager : MonoBehaviour
         buildings.Add("Test", "Buildings/Test");
         buildings.Add("BigTest", "Buildings/BigTest");
         buildings.Add("Seal Bathing Area", "Buildings/Seal Bathing Area");
+        buildings.Add("Generator1", "Buildings/Generator1");
+        buildings.Add("Seal Bathing Area2", "Buildings/Seal Bathing Area2");
 
     }
     

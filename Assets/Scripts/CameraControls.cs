@@ -50,7 +50,7 @@ public class CameraControls : MonoBehaviour
             cam.transform.position = _origin - _difference;
             Vector3 temp = cam.transform.position;
             temp.x = Mathf.Clamp(temp.x, -10, 10);
-            temp.y = Mathf.Clamp(temp.y, -10, 10);
+            temp.y = Mathf.Clamp(temp.y, 1, 10);
             temp.z = Mathf.Clamp(temp.z, -10, 10);
             cam.transform.position = temp;
         }
