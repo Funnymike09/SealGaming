@@ -59,10 +59,9 @@ public class GridManager : MonoBehaviour
     {
         beachTiles = GameObject.FindGameObjectsWithTag("Beach");
         
-        SpawnSeal(Random.Range(0, beachTiles.Length));
-        
-        InvokeRepeating(nameof(KillMe), 120, 120);
+        InvokeRepeating(nameof(SpawnSeal), 1, 90);
         InvokeRepeating(nameof(AdvanceDay), 120, 120);
+        InvokeRepeating(nameof(SpawnTrash), 1, 60);
     }
     
     void AdvanceDay() 
@@ -70,16 +69,14 @@ public class GridManager : MonoBehaviour
         dayIndex += 1;
     }
     
-    void KillMe() 
-    {
-        SpawnSeal(Random.Range(0, beachTiles.Length));
-    }
 
     void InitialiseDict() 
     {
         buildings.Add("Test", "Buildings/Test");
         buildings.Add("BigTest", "Buildings/BigTest");
         buildings.Add("Seal Bathing Area", "Buildings/Seal Bathing Area");
+        buildings.Add("Generator1", "Buildings/Generator1");
+        buildings.Add("Seal Bathing Area2", "Buildings/Seal Bathing Area2");
 
     }
     
@@ -122,12 +119,19 @@ public class GridManager : MonoBehaviour
         
     }
     
-    public void SpawnSeal(int number) 
+    public void SpawnSeal() 
     {
-        Vector3 adjustedPosition = beachTiles[number].transform.position;
+        Vector3 adjustedPosition = beachTiles[Random.Range(0, beachTiles.Length)].transform.position;
         adjustedPosition.y = adjustedPosition.y + 0.5f;
-       GameObject seal = Instantiate(Resources.Load<GameObject>("Seals/AtlanticSeal"), adjustedPosition, Quaternion.Euler(-90, UnityEngine.Random.Range(0, 360), 0));
+        GameObject seal = Instantiate(Resources.Load<GameObject>("Seals/AtlanticSeal"), adjustedPosition, Quaternion.Euler(-90, UnityEngine.Random.Range(0, 360), 0));
         seal.GetComponent<SealInfo>().SetupHealthBar(HBcanvas, HBcamera);
+    }
+    
+    public void SpawnTrash() 
+    {
+        Vector3 adjustedPosition = beachTiles[Random.Range(0, beachTiles.Length)].transform.position;
+        adjustedPosition.y = adjustedPosition.y + 0.5f;
+        GameObject trash = Instantiate(Resources.Load<GameObject>("Buildings/TrashTile"), adjustedPosition, Quaternion.identity);
     }
 
 }

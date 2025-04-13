@@ -36,15 +36,13 @@ public class SelectObject : MonoBehaviour
         
 
 
-                if (Physics.Raycast(ray, out hit, 100, gameLayer)) 
+            if (Physics.Raycast(ray, out hit, 100, gameLayer)) 
             {
                 
                 if(currentObject != null) 
                 {
                     Destroy(currentObject.GetComponent<Outline>());
                 }
-             
-
                 currentObject = hit.transform.gameObject;
                 returnPosition = hit.transform.position;
                 if(currentObject.GetComponent<Outline>() == null) 
@@ -67,9 +65,6 @@ public class SelectObject : MonoBehaviour
                 Destroy(currentObject.GetComponent<Outline>());
                 currentObject = null;
             }
-            
-            
-
         }
         
         if (currentObject == null) 
@@ -91,6 +86,14 @@ public class SelectObject : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && isSealBeingMoved)
         {
              AudioManager.singleton.PlaySoundListOnce(currentObject,Huh);
+        }
+        if (currentObject.layer == LayerMask.NameToLayer("Trash")) 
+        {
+            EconomyManager.instance.AddMoney(100);
+            EconomyManager.instance.UpdateUI();
+            Destroy(currentObject);
+            currentObject = null;
+            AudioManager.singleton.PlaySound(Resources.Load<AudioClip>("Sounds/Objects, Coin, Glass, Several, Jar, Drop, Into SND54464 1"));
         }
 
     }

@@ -1,3 +1,4 @@
+
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
@@ -47,6 +48,11 @@ public class CameraControls : MonoBehaviour
         if (_drag)
         {
             cam.transform.position = _origin - _difference;
+            Vector3 temp = cam.transform.position;
+            temp.x = Mathf.Clamp(temp.x, -10, 10);
+            temp.y = Mathf.Clamp(temp.y, 1, 10);
+            temp.z = Mathf.Clamp(temp.z, -10, 10);
+            cam.transform.position = temp;
         }
         float scroll = Input.GetAxis("Mouse ScrollWheel");
         zoom -= scroll * zoomMutiplier;
