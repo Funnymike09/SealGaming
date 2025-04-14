@@ -21,6 +21,8 @@ public class CatalogueBrowse : MonoBehaviour
     public GameObject buyTest;
     public GameObject buyBigTest;
     public GameObject buyBath;
+
+    private Animator anim;
     Button.ButtonClickedEvent onClick;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -29,6 +31,7 @@ public class CatalogueBrowse : MonoBehaviour
         currentPage = 0;
         currentText = Text.GetComponent<TextMeshProUGUI>();
         currentMoneyText = Money.GetComponent<TextMeshProUGUI>();
+        anim = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -119,11 +122,13 @@ public class CatalogueBrowse : MonoBehaviour
 
     public void flipLeft()
     {
+        anim.Play("ChangePage");
         currentPage--;
     }
 
     public void flipRight()
     {
+        anim.Play("ChangePage");
         currentPage++;
     }
 }
