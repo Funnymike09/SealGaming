@@ -27,9 +27,9 @@ public class CreateBuilding : MonoBehaviour
     {
         if (EconomyManager.instance.currentMoney - Resources.Load<GameObject>(GridManager.instance.buildings[buildingName])
             .GetComponentInChildren<BuildingBase>().purchaseCost < 0
-            || EconomyManager.instance.currentEnergy - Resources.Load<GameObject>(GridManager.instance.buildings[buildingName]).
+            && EconomyManager.instance.currentEnergy - Resources.Load<GameObject>(GridManager.instance.buildings[buildingName]).
             GetComponentInChildren<BuildingBase>().energyCost < 0
-            || EconomyManager.instance.currentWorkPower - Resources.Load<GameObject>(GridManager.instance.buildings[buildingName]).
+            && EconomyManager.instance.currentWorkPower - Resources.Load<GameObject>(GridManager.instance.buildings[buildingName]).
             GetComponentInChildren<BuildingBase>().workPowerCost < 0) 
         {
             return;

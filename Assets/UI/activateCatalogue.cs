@@ -35,4 +35,14 @@ public class activateCatalogue : MonoBehaviour
 
         catalogueOpened = true;
     }
+
+    public void closeThing()
+    {
+        for (int i = 0; i < catalogueMenu.transform.childCount; i++)
+        {
+            catalogueMenu.transform.GetChild(i).gameObject.SetActive(false);
+        }
+
+        catalogueOpened = false;
+    }
 }
