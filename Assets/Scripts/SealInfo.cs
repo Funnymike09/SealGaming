@@ -54,6 +54,7 @@ public class SealInfo : MonoBehaviour
         if (Health >= 100.0f) 
         {
             EconomyManager.instance.AddMoney(100);
+            if (QuestManager.instance.currentQuest.type == QuestDataSO.QUEST_TYPE.SEAL) QuestManager.instance.IncrementQuest();
             AudioManager.singleton.PlaySoundListOnce(gameObject, moner);
             Destroy(gameObject);
             Destroy(progressbarUI.gameObject);

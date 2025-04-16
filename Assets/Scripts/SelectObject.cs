@@ -90,6 +90,7 @@ public class SelectObject : MonoBehaviour
         if (currentObject.layer == LayerMask.NameToLayer("Trash")) 
         {
             EconomyManager.instance.AddMoney(100);
+            if (QuestManager.instance.currentQuest.type == QuestDataSO.QUEST_TYPE.TRASH) QuestManager.instance.IncrementQuest();
             EconomyManager.instance.UpdateUI();
             Destroy(currentObject);
             currentObject = null;
