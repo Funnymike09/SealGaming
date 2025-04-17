@@ -15,6 +15,5 @@ MonoBehaviour:
   questName: TrashQuest1
   questDescription: Meep
   type: 2
-  currentValue: 0
   maxValue: 1
-  rewardValue: 100
+  rewardValue: 500

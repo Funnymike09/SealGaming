@@ -55,7 +55,10 @@ public class CreateBuilding : MonoBehaviour
                 EconomyManager.instance.AddEnergy(tempBuildingInfo.energyProduced);
                 EconomyManager.instance.AddWorkPower(tempBuildingInfo.workPowerProduced);
                 EconomyManager.instance.UpdateUI();
-                if (QuestManager.instance.currentQuest.type == QuestDataSO.QUEST_TYPE.BUILDING) QuestManager.instance.IncrementQuest();
+                if (QuestManager.instance.currentQuest != null) 
+                {
+                    if (QuestManager.instance.currentQuest.type == QuestDataSO.QUEST_TYPE.BUILDING) QuestManager.instance.IncrementQuest();
+                }
                 EconomyManager.instance.economyTickEvent.AddListener(tempBuildingInfo.ProduceMoney);
                 Destroy(tempBuildingInfo.gameObject.GetComponent<Outline>());
                 tempBuilding = null;

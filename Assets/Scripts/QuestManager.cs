@@ -10,6 +10,8 @@ public class QuestManager : MonoBehaviour
     public List<QuestDataSO> quests = new List<QuestDataSO>();
     
     int questIndex = 0;
+    
+    public int currentValue;
 
     void Awake()
     {
@@ -22,20 +24,27 @@ public class QuestManager : MonoBehaviour
             instance = this;
         }
         
-        
+        currentValue = 0;
         currentQuest = quests[questIndex];
     }
     
     public void IncrementQuest() 
     {
-        currentQuest.currentValue += 1;
+        currentValue += 1;
     
-        if (currentQuest.currentValue == currentQuest.maxValue) 
+        if (currentValue == currentQuest.maxValue) 
         {
             EconomyManager.instance.AddMoney(currentQuest.rewardValue);
             EconomyManager.instance.UpdateUI();
             questIndex += 1;
+            if (questIndex >= quests.Count) 
+            {
+                currentQuest = null;
+                return;
+            }
+             
             currentQuest = quests[questIndex];
+            currentValue = 0;
         }
     
     }

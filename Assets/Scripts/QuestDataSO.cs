@@ -15,7 +15,6 @@ public class QuestDataSO : ScriptableObject
     public string questName;
     public string questDescription;
     public QUEST_TYPE type;
-    public int currentValue;
     public int maxValue;
     public int rewardValue;
         
