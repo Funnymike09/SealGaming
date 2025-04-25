@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class QuestManager : MonoBehaviour
@@ -12,6 +13,14 @@ public class QuestManager : MonoBehaviour
     int questIndex = 0;
     
     public int currentValue;
+    
+    [Header("UI Elements")]
+    [SerializeField] private TextMeshProUGUI questTitle;
+    [SerializeField] private TextMeshProUGUI questDescription;
+    [SerializeField] private TextMeshProUGUI questMaxValue;
+    [SerializeField] private TextMeshProUGUI questCurrentValue;
+    [SerializeField] private TextMeshProUGUI questReward;
+   
 
     void Awake()
     {
@@ -26,6 +35,7 @@ public class QuestManager : MonoBehaviour
         
         currentValue = 0;
         currentQuest = quests[questIndex];
+        UpdateUI();
     }
     
     public void IncrementQuest() 
@@ -45,10 +55,19 @@ public class QuestManager : MonoBehaviour
              
             currentQuest = quests[questIndex];
             currentValue = 0;
+            UpdateUI();
         }
     
     }
-    
-    
-    
+
+    void UpdateUI()
+    {
+        questTitle.text = currentQuest.questName;
+        questDescription.text = currentQuest.questDescription;
+        questMaxValue.text = currentQuest.maxValue.ToString();
+        questCurrentValue.text = currentValue.ToString();
+        questReward.text = currentQuest.rewardValue.ToString() + "$";
+    }
+
+
 }
