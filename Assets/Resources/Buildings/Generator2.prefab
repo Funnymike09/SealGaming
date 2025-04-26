@@ -186,8 +186,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moneyProduced: 0
   energyProduced: 3
-  workPowerProduced: 0
+  workPowerProduced: 7
   purchaseCost: 325
   energyCost: 0
-  workPowerCost: 0
+  workPowerRequirement: 10
   canBePlaced: 0

@@ -32,6 +32,10 @@ public class GridManager : MonoBehaviour
     public int gridMinZ;
     public int gridMaxZ; 
     
+    [Header("Spawn Rates")]
+    [SerializeField] private float sealSpawnRate;
+    [SerializeField] private float trashSpawnRate;
+    
     [HideInInspector] public bool isBuildingBeingPlaced;
 
     void Awake()
@@ -59,9 +63,9 @@ public class GridManager : MonoBehaviour
     {
         beachTiles = GameObject.FindGameObjectsWithTag("Beach");
         
-        InvokeRepeating(nameof(SpawnSeal), 1, 90);
-        InvokeRepeating(nameof(AdvanceDay), 120, 120);
-        InvokeRepeating(nameof(SpawnTrash), 1, 60);
+        InvokeRepeating(nameof(SpawnSeal), 1, sealSpawnRate);
+        // InvokeRepeating(nameof(AdvanceDay), 120, 120);
+        InvokeRepeating(nameof(SpawnTrash), 1, trashSpawnRate);
     }
     
     void AdvanceDay() 
@@ -78,6 +82,8 @@ public class GridManager : MonoBehaviour
         buildings.Add("Generator1", "Buildings/Generator1");
         buildings.Add("Seal Bathing Area2", "Buildings/Seal Bathing Area2");
         buildings.Add("Generator2", "Buildings/Generator2");
+        buildings.Add("Seal Bathing Area3", "Buildings/Seal Bathing Area 3");
+        buildings.Add("Seal Centre", "Buildings/Seal Centre");
 
     }
     

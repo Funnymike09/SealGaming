@@ -119,7 +119,7 @@ PrefabInstance:
       addedObject: {fileID: 6957518814191704283}
     - targetCorrespondingSourceObject: {fileID: 8145523895347453771, guid: 59f166d9efad92b4bacb76b7a2a24c21, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1919409956270883740}
+      addedObject: {fileID: 5001546737063363055}
   m_SourcePrefab: {fileID: 100100000, guid: 59f166d9efad92b4bacb76b7a2a24c21, type: 3}
 --- !u!1 &6337411165498274447 stripped
 GameObject:
@@ -188,12 +188,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moneyProduced: 0
   energyProduced: 0
-  workPowerProduced: 0
+  workPowerProduced: 2
   purchaseCost: 150
   energyCost: 1
-  workPowerCost: 0
+  workPowerRequirement: 0
   canBePlaced: 0
---- !u!114 &1919409956270883740
+--- !u!114 &5001546737063363055
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -206,6 +206,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSeal: {fileID: 0}
+  moneyProduced: 150
+  healRate: 3.5
 --- !u!4 &7617328699176000285 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5714935041977251545, guid: 59f166d9efad92b4bacb76b7a2a24c21, type: 3}

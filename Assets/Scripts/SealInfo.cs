@@ -11,9 +11,9 @@ public class SealInfo : MonoBehaviour
    public float Health = 1;
     [SerializeField]
     public ProgressbarUI progressbarUI;
-    private float MaxHealth;
+    [SerializeField] private float MaxHealth;
    [SerializeField] float healRate;
-    [SerializeField]
+   [SerializeField] 
     AudioClip Spawn;
     [SerializeField]
     AudioClip DoneHeal;
@@ -22,11 +22,14 @@ public class SealInfo : MonoBehaviour
     [SerializeField]
     AudioResource moner;
 
-
+    [SerializeField] private int maxLifeSpan;
+    private float currentLife;
+    
+    private bool isSealBeingHealed;
 
 
     private bool isInTrigger;
-   private SealBuilding sealBuilding;
+    private SealBuilding sealBuilding;
 
     void Awake()
     {
@@ -44,16 +47,26 @@ public class SealInfo : MonoBehaviour
         {
             Sick = true;
         }
-        MaxHealth = 100;
        // AudioManager.singleton.PlaySound(Spawn);
         AudioManager.singleton.PlaySoundListSpatialClip(gameObject, Spawn);
     }
 
     void Update()
     {
+    
+        if(!Camera.main.GetComponent<SelectObject>().isSealBeingMoved && !isSealBeingHealed) 
+        {
+            currentLife += Time.deltaTime;
+        }
+        
+        if (currentLife > maxLifeSpan) 
+        {
+            Destroy(gameObject);
+        }
+    
         if (Health >= 100.0f) 
         {
-            EconomyManager.instance.AddMoney(100);
+            EconomyManager.instance.AddMoney(sealBuilding.moneyProduced);
             if (QuestManager.instance.currentQuest != null) 
             {
                 if (QuestManager.instance.currentQuest.type == QuestDataSO.QUEST_TYPE.SEAL) QuestManager.instance.IncrementQuest();
@@ -112,8 +125,9 @@ public class SealInfo : MonoBehaviour
 
     void Heal() 
     {
-        Health += healRate;
-        progressbarUI.SetProgress(Health / MaxHealth, 3);
+        isSealBeingHealed = true;
+        Health += sealBuilding.healRate;
+        progressbarUI.SetProgress(Health / 100, 3);
     }
 
     public void SetupHealthBar(Canvas canvas, Camera camera)

@@ -9,7 +9,7 @@ public class BuildingBase : MonoBehaviour
     public float workPowerProduced;
     public float purchaseCost;
     public float energyCost;
-    public float workPowerCost;
+    public float workPowerRequirement;
     
     public bool canBePlaced;
 

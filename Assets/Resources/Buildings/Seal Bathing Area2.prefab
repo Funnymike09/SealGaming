@@ -158,10 +158,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moneyProduced: 0
   energyProduced: 0
-  workPowerProduced: 0
+  workPowerProduced: 5
   purchaseCost: 300
   energyCost: 2
-  workPowerCost: 0
+  workPowerRequirement: 10
   canBePlaced: 0
 --- !u!114 &2861902499706854122
 MonoBehaviour:
@@ -176,6 +176,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSeal: {fileID: 0}
+  moneyProduced: 350
+  healRate: 5
 --- !u!1 &8369249196423246953
 GameObject:
   m_ObjectHideFlags: 0

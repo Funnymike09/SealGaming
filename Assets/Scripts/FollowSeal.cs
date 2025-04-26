@@ -9,6 +9,7 @@ public class FollowSeal : MonoBehaviour
 
     private void Update()
     {
+        if(Target == null) return;
         transform.position = Target.position + Offset;
     }
 }
