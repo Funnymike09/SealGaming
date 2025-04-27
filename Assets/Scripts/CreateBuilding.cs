@@ -27,37 +27,21 @@ public class CreateBuilding : MonoBehaviour
 
     public void BuildingCreate(string buildingName) 
     {
-        switch(sealCentrePlaced)
+       
+        if (EconomyManager.instance.currentMoney - Resources.Load<GameObject>(GridManager.instance.buildings[buildingName])
+            .GetComponentInChildren<BuildingBase>().purchaseCost < 0
+        || EconomyManager.instance.currentEnergy - Resources.Load<GameObject>(GridManager.instance.buildings[buildingName]).
+            GetComponentInChildren<BuildingBase>().energyCost < 0
+        || EconomyManager.instance.currentWorkPower < Resources.Load<GameObject>(GridManager.instance.buildings[buildingName]).
+            GetComponentInChildren<BuildingBase>().workPowerRequirement)
         {
-            case true:
-                if (EconomyManager.instance.currentMoney - Resources.Load<GameObject>(GridManager.instance.buildings[buildingName])
-                .GetComponentInChildren<BuildingBase>().purchaseCost < 0
-                || EconomyManager.instance.currentEnergy - Resources.Load<GameObject>(GridManager.instance.buildings[buildingName]).
-                GetComponentInChildren<BuildingBase>().energyCost < 0
-                || EconomyManager.instance.currentWorkPower < Resources.Load<GameObject>(GridManager.instance.buildings[buildingName]).
-                GetComponentInChildren<BuildingBase>().workPowerRequirement
-                )
-                    {
-                        return;
-                    }
-                tempBuilding = Instantiate(Resources.Load<GameObject>(GridManager.instance.buildings[buildingName]), Vector3.zero, UnityEngine.Quaternion.identity, buildingParent.transform);
-                tempBuildingInfo = tempBuilding.GetComponentInChildren<BuildingBase>();
-                tempBuildingInfo.gameObject.AddComponent<Outline>();
-                GridManager.instance.isBuildingBeingPlaced = true;
-                break;
-                
-            case false:
-            
-                if(buildingName == "Seal Centre") 
-                {
-                    tempBuilding = Instantiate(Resources.Load<GameObject>(GridManager.instance.buildings[buildingName]), Vector3.zero, UnityEngine.Quaternion.identity, buildingParent.transform);
-                    tempBuildingInfo = tempBuilding.GetComponentInChildren<BuildingBase>();
-                    tempBuildingInfo.gameObject.AddComponent<Outline>();
-                    GridManager.instance.isBuildingBeingPlaced = true;
-                }
-                else return;
-                break;
+            return;
         }
+        
+        tempBuilding = Instantiate(Resources.Load<GameObject>(GridManager.instance.buildings[buildingName]), Vector3.zero, UnityEngine.Quaternion.identity, buildingParent.transform);
+        tempBuildingInfo = tempBuilding.GetComponentInChildren<BuildingBase>();
+        tempBuildingInfo.gameObject.AddComponent<Outline>();
+        GridManager.instance.isBuildingBeingPlaced = true;
         
     }
 
@@ -75,7 +59,6 @@ public class CreateBuilding : MonoBehaviour
                 EconomyManager.instance.AddEnergy(tempBuildingInfo.energyProduced);
                 EconomyManager.instance.AddWorkPower(tempBuildingInfo.workPowerProduced);
                 EconomyManager.instance.UpdateUI();
-                if (tempBuilding.gameObject.name == "Seal Centre(Clone)") sealCentrePlaced = true;
                 if (QuestManager.instance.currentQuest != null) 
                 {
                     if (QuestManager.instance.currentQuest.type == QuestDataSO.QUEST_TYPE.BUILDING) QuestManager.instance.IncrementQuest();

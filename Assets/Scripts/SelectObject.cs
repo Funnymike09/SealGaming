@@ -99,6 +99,28 @@ public class SelectObject : MonoBehaviour
             currentObject = null;
             AudioManager.singleton.PlaySound(Resources.Load<AudioClip>("Sounds/Objects, Coin, Glass, Several, Jar, Drop, Into SND54464 1"));
         }
+        
+        if (currentObject.layer == LayerMask.NameToLayer("Building")) 
+        {
+            var info = currentObject.GetComponent<BuildingBase>();
+            if (Input.GetKeyDown(KeyCode.X)) 
+            {
+                if (EconomyManager.instance.currentEnergy - info.energyProduced <= 0) return;
+                
+                if (currentObject.TryGetComponent<SealBuilding>(out SealBuilding sb)) 
+                {
+                    if (sb.currentSeal != null) return;
+                }
+                
+                EconomyManager.instance.AddMoney(info.purchaseCost);
+                EconomyManager.instance.AddEnergy(info.energyCost);
+                EconomyManager.instance.RemoveEnergy(info.energyProduced);
+                EconomyManager.instance.RemoveWorkPower(info.workPowerProduced);
+                EconomyManager.instance.UpdateUI();
+                Destroy(currentObject.gameObject);
+            }
+    
+        }
 
     }
     

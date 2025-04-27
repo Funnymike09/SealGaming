@@ -51,7 +51,7 @@ public class EconomyManager : MonoBehaviour
         currentEnergy = startingEnergy;
         currentWorkPower = startingWorkPower;
 
-        moneyText.text = currentMoney.ToString();
+        moneyText.text = "$" + currentMoney.ToString();
         workPowerText.text = currentWorkPower.ToString();
         energyText.text = currentEnergy.ToString();
         dayText.text = "Day: " + GridManager.instance.dayIndex;
@@ -68,7 +68,7 @@ public class EconomyManager : MonoBehaviour
 
     public void UpdateUI()
     {
-        moneyText.text = currentMoney.ToString();
+        moneyText.text = "$" + currentMoney.ToString();
         workPowerText.text = currentWorkPower.ToString();
         energyText.text = currentEnergy.ToString();
         dayText.text = "Day: " + GridManager.instance.dayIndex;

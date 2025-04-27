@@ -188,5 +188,5 @@ MonoBehaviour:
   workPowerProduced: 2
   purchaseCost: 125
   energyCost: 0
-  workPowerRequirement: 0
+  workPowerRequirement: 2
   canBePlaced: 0
