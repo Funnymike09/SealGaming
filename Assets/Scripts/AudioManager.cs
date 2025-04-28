@@ -48,6 +48,16 @@ public class AudioManager : MonoBehaviour
         source.Play();
         //StartCoroutine(RemoveComponent(source, source.clip.length));
     }
+    public void PlaySoundListR(AudioResource clip)
+    {
+        AudioSource source = gameObject.GetComponent<AudioSource>();
+        // source.spatialBlend = 1.0f;
+        // source.maxDistance = 20f;
+        // source.rolloffMode = AudioRolloffMode.Linear;
+        source.resource = clip;
+        source.Play();
+        //StartCoroutine(RemoveComponent(source, source.clip.length));
+    }
     public void PlaySoundListOnce(GameObject go, AudioResource clip)
     {
         AudioSource source = go.GetComponent<AudioSource>();

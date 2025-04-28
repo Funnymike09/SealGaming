@@ -77,33 +77,38 @@ public class EconomyManager : MonoBehaviour
     public void AddMoney(float amount)
     {
         currentMoney += amount;
-        StartCoroutine(PopupText(popupSpawnLocations[0], amount.ToString(), Color.green, stayTime));
+        StartCoroutine(PopupText(popupSpawnLocations[0], "+"+amount.ToString(), Color.green, stayTime));
         //AudioManager.singleton.PlaySoundListOnce(gameObject, moner);
     }
 
     public void RemoveMoney(float amount)
     {
         currentMoney -= amount;
+        StartCoroutine(PopupText(popupSpawnLocations[0], "-" + amount.ToString(), Color.red, stayTime));
     }
 
     public void AddEnergy(float amount)
     {
         currentEnergy += amount;
+        StartCoroutine(PopupText(popupSpawnLocations[2], "+" + amount.ToString(), Color.green, stayTime));
     }
 
     public void RemoveEnergy(float amount)
     {
         currentEnergy -= amount;
+        StartCoroutine(PopupText(popupSpawnLocations[2], "-" + amount.ToString(), Color.red, stayTime));
     }
 
     public void AddWorkPower(float amount)
     {
         currentWorkPower += amount;
+        StartCoroutine(PopupText(popupSpawnLocations[1], "+" + amount.ToString(), Color.green, stayTime));
     }
 
     public void RemoveWorkPower(float amount)
     {
         currentWorkPower -= amount;
+        StartCoroutine(PopupText(popupSpawnLocations[1], "-" + amount.ToString(), Color.red, stayTime));
     }
 
     public IEnumerator PopupText(Vector2 screenPos, string displayString, Color color, float stayTime) // create a popup showing how much money they earn / spend. QOL  // might need to add a empty game obj to each price tag 
