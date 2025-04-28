@@ -17,7 +17,7 @@ public class activateCatalogue : MonoBehaviour
     // Push Fix
     void Update()
     {
-        if (catalogueOpened == true)
+        /*if (catalogueOpened == true)
         {
             if (Input.GetKeyUp(KeyCode.Escape))
             {
@@ -30,7 +30,7 @@ public class activateCatalogue : MonoBehaviour
 
                 catalogueOpened = false;
             }
-        }
+        }*/
     }
 
     public void openClose()
