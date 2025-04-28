@@ -69,5 +69,6 @@ public class QuestManager : MonoBehaviour
         questReward.text = currentQuest.rewardValue.ToString() + "$";
     }
 
+    
 
 }

@@ -92,7 +92,7 @@ public class SelectObject : MonoBehaviour
             EconomyManager.instance.AddMoney(100);
             if (QuestManager.instance.currentQuest != null) 
                 {
-                    if (QuestManager.instance.currentQuest.type == QuestDataSO.QUEST_TYPE.TRASH) QuestManager.instance.IncrementQuest();
+                    if (QuestManager.instance.currentQuest.type.HasFlag(QuestDataSO.QUEST_TYPE.TRASH)) QuestManager.instance.IncrementQuest();
                 }
             EconomyManager.instance.UpdateUI();
             Destroy(currentObject);

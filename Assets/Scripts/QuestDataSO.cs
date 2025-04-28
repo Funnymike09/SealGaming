@@ -1,9 +1,10 @@
+using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "QuestDataSO", menuName = "Scriptable Objects/QuestDataSO")]
 public class QuestDataSO : ScriptableObject
 {
-
+    [Flags]
     public enum QUEST_TYPE
     {
         SEAL,
@@ -17,5 +18,6 @@ public class QuestDataSO : ScriptableObject
     public QUEST_TYPE type;
     public int maxValue;
     public int rewardValue;
+    
         
 }

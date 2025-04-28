@@ -69,7 +69,7 @@ public class SealInfo : MonoBehaviour
             EconomyManager.instance.AddMoney(sealBuilding.moneyProduced);
             if (QuestManager.instance.currentQuest != null) 
             {
-                if (QuestManager.instance.currentQuest.type == QuestDataSO.QUEST_TYPE.SEAL) QuestManager.instance.IncrementQuest();
+                if (QuestManager.instance.currentQuest.type.HasFlag(QuestDataSO.QUEST_TYPE.SEAL)) QuestManager.instance.IncrementQuest();
             }
             AudioManager.singleton.PlaySoundListOnce(gameObject, moner);
             Destroy(gameObject);

@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 4751942266005507586}
   - component: {fileID: 8916605557430204530}
   - component: {fileID: 4457073411745038098}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sand
-  m_TagString: Untagged
+  m_TagString: Beach
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
