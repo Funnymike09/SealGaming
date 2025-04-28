@@ -70,6 +70,7 @@ public class SealInfo : MonoBehaviour
             if (QuestManager.instance.currentQuest != null) 
             {
                 if (QuestManager.instance.currentQuest.type.HasFlag(QuestDataSO.QUEST_TYPE.SEAL)) QuestManager.instance.IncrementQuest();
+
             }
             AudioManager.singleton.PlaySoundListOnce(gameObject, moner);
             Destroy(gameObject);

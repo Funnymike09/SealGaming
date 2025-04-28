@@ -52,11 +52,12 @@ public class QuestManager : MonoBehaviour
                 currentQuest = null;
                 return;
             }
-             
+            print("balls");
             currentQuest = quests[questIndex];
             currentValue = 0;
             UpdateUI();
         }
+        
     
     }
 

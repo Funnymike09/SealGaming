@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questName: TrashQuest1
   questDescription: Meep
-  type: 2
+  type: 4
   maxValue: 1
   rewardValue: 500

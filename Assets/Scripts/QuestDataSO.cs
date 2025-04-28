@@ -7,9 +7,9 @@ public class QuestDataSO : ScriptableObject
     [Flags]
     public enum QUEST_TYPE
     {
-        SEAL,
-        BUILDING,
-        TRASH
+        SEAL = 1,
+        BUILDING = 2,
+        TRASH = 4
     }
 
 

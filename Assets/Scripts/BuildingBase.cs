@@ -27,13 +27,13 @@ public class BuildingBase : MonoBehaviour
     public void OnTriggerStay(Collider other)
     {
         canBePlaced = false;
-        print("trigger entered");
+      
     }
 
     public void OnTriggerExit(Collider other)
     {
         canBePlaced = true;
-        print("trigger exited");
+       
     }
 
 

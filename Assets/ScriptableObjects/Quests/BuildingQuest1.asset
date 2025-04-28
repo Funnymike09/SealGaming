@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questName: BuildingQuest1
   questDescription: Go fuck yourself
-  type: 1
-  currentValue: 0
+  type: 2
   maxValue: 1
   rewardValue: 100
