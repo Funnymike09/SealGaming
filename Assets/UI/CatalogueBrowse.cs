@@ -22,6 +22,13 @@ public class CatalogueBrowse : MonoBehaviour
     public GameObject buyBigTest;
     public GameObject buyBath;
 
+    public Sprite lvl3Gen;
+    public Sprite lvl1Bath;
+    public Sprite lvl2Gen;
+    public Sprite lvl2Bath;
+    public Sprite lvl3Bath;
+    public Sprite lvl1Gen;
+
     private Animator anim;
     Button.ButtonClickedEvent onClick;
 
@@ -37,9 +44,9 @@ public class CatalogueBrowse : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentPage >= 6)
+        if (currentPage >= 7)
         {
-            currentPage = 5;
+            currentPage = 6;
         }
 
         if (currentPage <= -1)
@@ -56,66 +63,85 @@ public class CatalogueBrowse : MonoBehaviour
                 buyTest.SetActive(true);
                 buyBigTest.SetActive(false);
                 buyBath.SetActive(false);
+                Image.GetComponent<Image>().sprite = lvl1Gen; //Placeholder until Finn gives centre icon
             }
         }
 
         else if (currentPage == 1)
         {
-            currentText.text = "A small building that is constantly generating energy for the island and its buildings through use of wind power.";
+            currentText.text = "A small building that generates some energy for the island and its buildings through use of wind power.";
             currentMoneyText.text = "250";
             if (Image.activeSelf)
             {
                 buyTest.SetActive(false);
                 buyBigTest.SetActive(true);
                 buyBath.SetActive(false);
+                Image.GetComponent<Image>().sprite = lvl1Gen;
             }
         }
 
         else if (currentPage == 2)
         {
-            currentText.text = "A small bath you can put a local sea in to raise its happiness and clean it if it has become unhygenic. To use, drag and drop a seal onto it.";
+            currentText.text = "A small bath you can put a local seal in to raise its happiness and clean it if it has become unhygenic. To use, drag and drop a seal onto it.";
             currentMoneyText.text = "300";
             if (Image.activeSelf)
             {
                 buyTest.SetActive(false);
                 buyBigTest.SetActive(false);
                 buyBath.SetActive(true);
+                Image.GetComponent<Image>().sprite = lvl1Bath;
             }
         }
 
         else if (currentPage == 3)
         {
-            currentText.text = "There is no building assigned to this page as of yet.";
-            currentMoneyText.text = "0";
+            currentText.text = "A medium building that efficiently generates energy for the island and its buildings through use of wind power.";
+            currentMoneyText.text = "400";
             if (Image.activeSelf)
             {
                 buyTest.SetActive(false);
                 buyBigTest.SetActive(false);
                 buyBath.SetActive(false);
+                Image.GetComponent<Image>().sprite = lvl2Gen;
             }
         }
 
         else if (currentPage == 4)
         {
-            currentText.text = "There is no building assigned to this page as of yet.";
-            currentMoneyText.text = "0";
+            currentText.text = "A medium bath you can put multipile local seals in to raise happiness and clean. To use, drag and drop seals onto it.";
+            currentMoneyText.text = "500";
             if (Image.activeSelf)
             {
                 buyTest.SetActive(false);
                 buyBigTest.SetActive(false);
                 buyBath.SetActive(false);
+                Image.GetComponent<Image>().sprite = lvl2Bath;
             }
         }
 
         else if (currentPage == 5)
         {
-            currentText.text = "There is no building assigned to this page as of yet.";
-            currentMoneyText.text = "0";
+            currentText.text = "A large building that generates massive amounts of energy for the island and its buildings through use of wind power.";
+            currentMoneyText.text = "800";
             if (Image.activeSelf)
             {
                 buyTest.SetActive(false);
                 buyBigTest.SetActive(false);
                 buyBath.SetActive(false);
+                Image.GetComponent<Image>().sprite = lvl3Gen;
+            }
+        }
+
+        else if (currentPage == 6)
+        {
+            currentText.text = "A large bath you can put a jamboree of local seals in to drastically raise happiness and clean. To use, drag and drop seals onto it.";
+            currentMoneyText.text = "900";
+            if (Image.activeSelf)
+            {
+                buyTest.SetActive(false);
+                buyBigTest.SetActive(false);
+                buyBath.SetActive(false);
+                Image.GetComponent<Image>().sprite = lvl3Bath;
             }
         }
     }

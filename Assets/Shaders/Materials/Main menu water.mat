@@ -154,7 +154,7 @@ Material:
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _ShadeSteps: 2
-    - _Shades: 4
+    - _Shades: 4.1
     - _Size: 5.7
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
@@ -183,7 +183,7 @@ Material:
     - _DepthColor: {r: 0.43867922, g: 0.66233045, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _LightFoam_Colour: {r: 0.9433962, g: 0.9433962, b: 0.9433962, a: 0}
-    - _ShallowColor: {r: 0.2950338, g: 0.73847246, b: 0.9622641, a: 0.98039216}
+    - _ShallowColor: {r: 0.21226418, g: 0.7358769, b: 1, a: 0.98039216}
     - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _WaterColour: {r: 0, g: 0.32770592, b: 0.5660378, a: 0}
