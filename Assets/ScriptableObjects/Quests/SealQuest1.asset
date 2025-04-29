@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SealQuest1
   m_EditorClassIdentifier: 
   questName: SealQuest1
-  questDescription: This is a placeholder
+  questDescription: 'Save them seals '
   type: 1
-  maxValue: 1
+  maxValue: 10
   rewardValue: 500
