@@ -12,10 +12,12 @@ public class PauseMenu : MonoBehaviour
     public AudioMixer masterMixer;
     private bool isPaused;
     public GameObject PauseUI;
+    public CameraControls Controls;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        GetComponent<CameraControls>().enabled = true;
         isPaused = false;
         PauseUI.SetActive(false);
         SetVolume(PlayerPrefs.GetFloat("SavedMasterVolume"));
@@ -48,18 +50,21 @@ public class PauseMenu : MonoBehaviour
         {
             Time.timeScale = 0;
             PauseUI.SetActive(true);
+            GetComponent<CameraControls>().enabled = false;
         }
 
         else
         {
             Time.timeScale = 1;
             PauseUI.SetActive(false);
+            GetComponent<CameraControls>().enabled = true;
         }
     }
 
     public void ResumeGame()
     {
         Time.timeScale = 1;
+        GetComponent<CameraControls>().enabled = true;
     }
     public void SetVolume(float value)
     {
