@@ -64,7 +64,7 @@ public class PauseMenu : MonoBehaviour
     public void ResumeGame()
     {
         Time.timeScale = 1;
-        GetComponent<CameraControls>().enabled = true;
+        //GetComponent<CameraControls>().enabled = true;
     }
     public void SetVolume(float value)
     {
