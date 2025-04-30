@@ -30,22 +30,27 @@ public class SealInfo : MonoBehaviour
 
     private bool isInTrigger;
     private SealBuilding sealBuilding;
+    
+    private float healMult = 1;
 
     void Awake()
     {
         if (Random.Range(0, 2) == 1) 
         {
             Malnourished = true;
+            healMult -= 0.15f;
         }
         
         if (Random.Range(0, 2) == 1) 
         {
             Injured = true;
+            healMult -= 0.15f;
         }
         
         if (Random.Range(0, 2) == 1) 
         {
             Sick = true;
+            healMult -= 0.15f;
         }
        // AudioManager.singleton.PlaySound(Spawn);
         AudioManager.singleton.PlaySoundListSpatialClip(gameObject, Spawn);
@@ -127,7 +132,7 @@ public class SealInfo : MonoBehaviour
     void Heal() 
     {
         isSealBeingHealed = true;
-        Health += sealBuilding.healRate;
+        Health += sealBuilding.healRate * healMult;
         progressbarUI.SetProgress(Health / 100, 3);
     }
 
