@@ -13,7 +13,8 @@ public class CreateBuilding : MonoBehaviour
     
     public GridInformation gridInfo;
     [SerializeField]
-    AudioClip Place;
+    //AudioClip Place;
+    AudioSource AS;
 
     GameObject tempBuilding;
     BuildingBase tempBuildingInfo;
@@ -23,6 +24,7 @@ public class CreateBuilding : MonoBehaviour
     void Awake()
     {
         buildingParent = GameObject.Find("BuildingParent");
+        AS = gameObject.GetComponent<AudioSource>();
     }
 
     public void BuildingCreate(string buildingName) 
@@ -69,7 +71,7 @@ public class CreateBuilding : MonoBehaviour
                 tempBuildingInfo = null;
                 GridManager.instance.isBuildingBeingPlaced = false;
                 Cursor.visible = true;
-                AudioManager.singleton.PlaySoundList(gameObject);
+                AS.Play();
             }
             
             if(Input.GetMouseButtonDown(1)) 

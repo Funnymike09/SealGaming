@@ -19,8 +19,12 @@ public class CatalogueBrowse : MonoBehaviour
     public GameObject Text;
     public GameObject Money;
     public GameObject buyTest;
-    public GameObject buyBigTest;
+    public GameObject buyGen;
     public GameObject buyBath;
+    public GameObject buyGen2;
+    public GameObject buyBath2;
+    public GameObject buyGen3;
+    public GameObject buyBath3;
 
     public Sprite lvl3Gen;
     public Sprite lvl1Bath;
@@ -28,6 +32,7 @@ public class CatalogueBrowse : MonoBehaviour
     public Sprite lvl2Bath;
     public Sprite lvl3Bath;
     public Sprite lvl1Gen;
+    public Sprite Centre;
 
     private Animator anim;
     Button.ButtonClickedEvent onClick;
@@ -61,9 +66,13 @@ public class CatalogueBrowse : MonoBehaviour
             if (Image.activeSelf)
             {
                 buyTest.SetActive(true);
-                buyBigTest.SetActive(false);
+                buyGen.SetActive(false);
                 buyBath.SetActive(false);
-                Image.GetComponent<Image>().sprite = lvl1Gen; //Placeholder until Finn gives centre icon
+                buyGen2.SetActive(false);
+                buyBath2.SetActive(false);
+                buyGen3.SetActive(false);
+                buyBath3.SetActive(false);
+                Image.GetComponent<Image>().sprite = Centre; //Placeholder until Finn gives centre icon
             }
         }
 
@@ -74,8 +83,12 @@ public class CatalogueBrowse : MonoBehaviour
             if (Image.activeSelf)
             {
                 buyTest.SetActive(false);
-                buyBigTest.SetActive(true);
+                buyGen.SetActive(true);
                 buyBath.SetActive(false);
+                buyGen2.SetActive(false);
+                buyBath2.SetActive(false);
+                buyGen3.SetActive(false);
+                buyBath3.SetActive(false);
                 Image.GetComponent<Image>().sprite = lvl1Gen;
             }
         }
@@ -87,8 +100,12 @@ public class CatalogueBrowse : MonoBehaviour
             if (Image.activeSelf)
             {
                 buyTest.SetActive(false);
-                buyBigTest.SetActive(false);
+                buyGen.SetActive(false);
                 buyBath.SetActive(true);
+                buyGen2.SetActive(false);
+                buyBath2.SetActive(false);
+                buyGen3.SetActive(false);
+                buyBath3.SetActive(false);
                 Image.GetComponent<Image>().sprite = lvl1Bath;
             }
         }
@@ -100,8 +117,12 @@ public class CatalogueBrowse : MonoBehaviour
             if (Image.activeSelf)
             {
                 buyTest.SetActive(false);
-                buyBigTest.SetActive(false);
+                buyGen.SetActive(false);
                 buyBath.SetActive(false);
+                buyGen2.SetActive(true);
+                buyBath2.SetActive(false);
+                buyGen3.SetActive(false);
+                buyBath3.SetActive(false);
                 Image.GetComponent<Image>().sprite = lvl2Gen;
             }
         }
@@ -113,8 +134,12 @@ public class CatalogueBrowse : MonoBehaviour
             if (Image.activeSelf)
             {
                 buyTest.SetActive(false);
-                buyBigTest.SetActive(false);
+                buyGen.SetActive(false);
                 buyBath.SetActive(false);
+                buyGen2.SetActive(false);
+                buyBath2.SetActive(true);
+                buyGen3.SetActive(false);
+                buyBath3.SetActive(false);
                 Image.GetComponent<Image>().sprite = lvl2Bath;
             }
         }
@@ -126,8 +151,12 @@ public class CatalogueBrowse : MonoBehaviour
             if (Image.activeSelf)
             {
                 buyTest.SetActive(false);
-                buyBigTest.SetActive(false);
+                buyGen.SetActive(false);
                 buyBath.SetActive(false);
+                buyGen2.SetActive(false);
+                buyBath2.SetActive(false);
+                buyGen3.SetActive(true);
+                buyBath3.SetActive(false);
                 Image.GetComponent<Image>().sprite = lvl3Gen;
             }
         }
@@ -139,8 +168,12 @@ public class CatalogueBrowse : MonoBehaviour
             if (Image.activeSelf)
             {
                 buyTest.SetActive(false);
-                buyBigTest.SetActive(false);
+                buyGen.SetActive(false);
                 buyBath.SetActive(false);
+                buyGen2.SetActive(false);
+                buyBath2.SetActive(false);
+                buyGen3.SetActive(false);
+                buyBath3.SetActive(true);
                 Image.GetComponent<Image>().sprite = lvl3Bath;
             }
         }

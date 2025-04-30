@@ -68,7 +68,7 @@ public class Main_Menu : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Alpha TestBuild");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void LoadWebsite()
