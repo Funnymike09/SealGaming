@@ -4178,6 +4178,7 @@ GameObject:
   - component: {fileID: 6727630820775129275}
   - component: {fileID: 3174343685902934386}
   - component: {fileID: 8975465670938249149}
+  - component: {fileID: 2818088888158494376}
   m_Layer: 0
   m_Name: 'little people '
   m_TagString: Untagged
@@ -4258,8 +4259,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb5fae70860fbe240bb5abcf8ea62f7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wanderRadius: 10
-  wanderInterval: 5
+  wanderRadius: 30
+  wanderInterval: 9
 --- !u!54 &8975465670938249149
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4287,6 +4288,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2818088888158494376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4051724248718560064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cdab8238d1314346a29c589d4fe693b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4211268858599708610
 GameObject:
   m_ObjectHideFlags: 0
