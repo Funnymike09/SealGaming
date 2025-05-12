@@ -20,7 +20,7 @@ public class BuildingBase : MonoBehaviour
 
     public void ProduceMoney() 
     {
-        EconomyManager.instance.AddMoney(moneyProduced);
+       // EconomyManager.instance.AddMoney(moneyProduced);
     }
 
 

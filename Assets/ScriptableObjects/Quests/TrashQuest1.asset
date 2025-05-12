@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cfb9b7edf656a94a8e7eecc5afd6f84, type: 3}
   m_Name: TrashQuest1
   m_EditorClassIdentifier: 
-  questName: TrashQuest1
-  questDescription: Meep
+  questName: 'Clean up '
+  questDescription: 'Clean the trash from the shores '
   type: 4
-  maxValue: 1
+  maxValue: 5
   rewardValue: 500

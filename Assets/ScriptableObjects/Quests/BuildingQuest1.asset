@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cfb9b7edf656a94a8e7eecc5afd6f84, type: 3}
   m_Name: BuildingQuest1
   m_EditorClassIdentifier: 
-  questName: BuildingQuest1
-  questDescription: Go fuck yourself
+  questName: EXPAND
+  questDescription: 'place some buildings '
   type: 2
-  maxValue: 1
-  rewardValue: 100
+  maxValue: 5
+  rewardValue: 300

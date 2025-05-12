@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cfb9b7edf656a94a8e7eecc5afd6f84, type: 3}
   m_Name: SealQuest1
   m_EditorClassIdentifier: 
-  questName: SealQuest1
+  questName: SealQuest
   questDescription: 'Save them seals '
   type: 1
   maxValue: 10

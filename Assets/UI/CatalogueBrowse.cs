@@ -11,6 +11,8 @@ public class CatalogueBrowse : MonoBehaviour
     public int currentPage;
     private TextMeshProUGUI currentText;
     private TextMeshProUGUI currentMoneyText;
+    private TextMeshProUGUI currentEnergyText;
+    private TextMeshProUGUI currentpplText;
     private Image Icon;
     [SerializeField] private string buyButtonCurrent;
     private string line1;
@@ -18,6 +20,8 @@ public class CatalogueBrowse : MonoBehaviour
     public GameObject Image;
     public GameObject Text;
     public GameObject Money;
+    public GameObject Energy;
+    public GameObject ppl;
     public GameObject buyTest;
     public GameObject buyGen;
     public GameObject buyBath;
@@ -43,6 +47,8 @@ public class CatalogueBrowse : MonoBehaviour
         currentPage = 0;
         currentText = Text.GetComponent<TextMeshProUGUI>();
         currentMoneyText = Money.GetComponent<TextMeshProUGUI>();
+        currentEnergyText = Energy.GetComponent<TextMeshProUGUI>();
+        currentpplText = ppl.GetComponent<TextMeshProUGUI>();
         anim = gameObject.GetComponent<Animator>();
     }
 
@@ -63,6 +69,8 @@ public class CatalogueBrowse : MonoBehaviour
         {
             currentText.text = "A modest care facility for the housing, caring and sheltering of seals. Comes with all the necessities such as air filtration, living space and offices.";
             currentMoneyText.text = "200";
+            currentEnergyText.text = "0";
+            currentpplText.text = "0";
             if (Image.activeSelf)
             {
                 buyTest.SetActive(true);
@@ -80,6 +88,8 @@ public class CatalogueBrowse : MonoBehaviour
         {
             currentText.text = "A small building that generates some energy for the island and its buildings through use of wind power.";
             currentMoneyText.text = "250";
+            currentEnergyText.text = "0";
+            currentpplText.text = "0";
             if (Image.activeSelf)
             {
                 buyTest.SetActive(false);
@@ -97,6 +107,8 @@ public class CatalogueBrowse : MonoBehaviour
         {
             currentText.text = "A small bath you can put a local seal in to raise its happiness and clean it if it has become unhygenic. To use, drag and drop a seal onto it.";
             currentMoneyText.text = "300";
+            currentEnergyText.text = "2";
+            currentpplText.text = "2";
             if (Image.activeSelf)
             {
                 buyTest.SetActive(false);
@@ -114,6 +126,8 @@ public class CatalogueBrowse : MonoBehaviour
         {
             currentText.text = "A medium building that efficiently generates energy for the island and its buildings through use of wind power.";
             currentMoneyText.text = "400";
+            currentEnergyText.text = "0";
+            currentpplText.text = "10";
             if (Image.activeSelf)
             {
                 buyTest.SetActive(false);
@@ -131,6 +145,8 @@ public class CatalogueBrowse : MonoBehaviour
         {
             currentText.text = "A medium bath you can put multipile local seals in to raise happiness and clean. To use, drag and drop seals onto it.";
             currentMoneyText.text = "500";
+            currentEnergyText.text = "5";
+            currentpplText.text = "10";
             if (Image.activeSelf)
             {
                 buyTest.SetActive(false);
@@ -148,6 +164,8 @@ public class CatalogueBrowse : MonoBehaviour
         {
             currentText.text = "A large building that generates massive amounts of energy for the island and its buildings through use of wind power.";
             currentMoneyText.text = "800";
+            currentEnergyText.text = "0";
+            currentpplText.text = "20";
             if (Image.activeSelf)
             {
                 buyTest.SetActive(false);
@@ -165,6 +183,8 @@ public class CatalogueBrowse : MonoBehaviour
         {
             currentText.text = "A large bath you can put a jamboree of local seals in to drastically raise happiness and clean. To use, drag and drop seals onto it.";
             currentMoneyText.text = "900";
+            currentEnergyText.text = "8";
+            currentpplText.text = "15";
             if (Image.activeSelf)
             {
                 buyTest.SetActive(false);
