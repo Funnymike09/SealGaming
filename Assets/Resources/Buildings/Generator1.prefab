@@ -186,7 +186,7 @@ MonoBehaviour:
   moneyProduced: 0
   energyProduced: 5
   workPowerProduced: 8
-  purchaseCost: 800
+  purchaseCost: 500
   energyCost: 0
-  workPowerRequirement: 20
+  workPowerRequirement: 30
   canBePlaced: 0

@@ -159,8 +159,8 @@ MonoBehaviour:
   moneyProduced: 0
   energyProduced: 0
   workPowerProduced: 5
-  purchaseCost: 500
-  energyCost: 5
+  purchaseCost: 300
+  energyCost: 2
   workPowerRequirement: 10
   canBePlaced: 0
 --- !u!114 &2861902499706854122
